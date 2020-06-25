@@ -126,46 +126,6 @@ Do you remember the Shell? It’s exactly the same but limited to a specific use
 - We strongly encourage you to work together on test cases, so that you don’t miss any edge case
 
 
-## More Info
-
-### Execution
-
-Your shell should work like this in interactive mode:
-
-  $ ./console.py
-  (hbnb) help
-  
-  Documented commands (type help <topic>):
-  ========================================
-  EOF  help  quit
-  
-  (hbnb) 
-  (hbnb) 
-  (hbnb) quit
-  $
-
-
-But also in non-interactive mode: (like the Shell project in C):
-
-$ echo "help" | ./console.py
-(hbnb)
-
-Documented commands (type help <topic>):
-========================================
-EOF  help  quit
-(hbnb) 
-$
-$ cat test_help
-help
-$
-$ cat test_help | ./console.py
-(hbnb)
-
-Documented commands (type help <topic>):
-========================================
-EOF  help  quit
-(hbnb) 
-$
 
 
 <p align="center">
