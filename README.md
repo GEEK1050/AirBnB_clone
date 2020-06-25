@@ -169,7 +169,6 @@ $
 
 
 <p align="center">
-  <img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/815046647d23428a14ca.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20200625%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200625T060724Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=e3daa832818df22276cf05d08757c71d0113e11bfa5f2838a0c2411d596056f1">
-</p>  
-
+  <img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/815046647d23428a14ca.png">
+</p>
 
