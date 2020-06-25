@@ -2,7 +2,9 @@
 
 
 
-![](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20200625%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200625T060724Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=a8ea01f0df8ec9509cd88054b34cfce73e9bdc21a8b9af9886c987c6426c9621)
+<p align="center">
+  <img src="https://i.imgur.com/JOhaZ5m.png">
+</p>
 
 
 The AirBnB clone project begin from now until the end of the first year and as an ultime goal of the project is to deploy on our server a simple copy of the AirBnB website.
@@ -11,16 +13,17 @@ The project won’t implement all the features, only some of them to cover all f
 
 After 4 months, it will be a complete web application composed by:
 
--A command interpreter to manipulate data without a visual interface, like in a Shell (perfect for development and debugging).
--A website (the front-end) that shows the final product to everybody: static and dynamic.
--A database or files that store data (data = objects).
--An API that provides a communication interface between the front-end and your data (retrieve, create, delete, update them).
+A command interpreter to manipulate data without a visual interface, like in a Shell (perfect for development and debugging).
+A website (the front-end) that shows the final product to everybody: static and dynamic.
+A database or files that store data (data = objects).
+An API that provides a communication interface between the front-end and your data (retrieve, create, delete, update them).
 
 
 ## Final product:
 
-![](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/268/8-index.png)
-
+<p align="center"
+  <img src="https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/268/8-index.png">
+</p>
 
 
 # 0x00. AirBnB clone - The console:
