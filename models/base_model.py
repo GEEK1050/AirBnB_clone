@@ -5,16 +5,16 @@ import uuid
 from datetime import datetime
 import models
 
-
 class BaseModel:
+
+    
     """Represents a BaseModel
     Attributes:
         id (string): generate an id for each BaseModel.
-        created_at (integer): represent the current datetime when the
-        instance is created.
-        updated_at (integer): represent the current datetime when
-        the instance is updated.
+        created_at (integer): represent the current datetime when the instance is created.
+        updated_at (integer): represent the current datetime when the instance is updated.
     """
+
     def __init__(self, *args, **kwargs):
         """
         Initialization
@@ -24,11 +24,9 @@ class BaseModel:
         self.updated_at = datetime.now()
         for key, value in kwargs.items():
             if key is "created_at":
-                self.created_at = datetime.strptime(value,
-                                                    "%Y-%m-%dT%H:%M:%S.%f")
+                self.created_at = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
             elif key is "updated_at":
-                self.updated_at = datetime.strptime(value,
-                                                    "%Y-%m-%dT%H:%M:%S.%f")
+                self.updated_at = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
             if key != "__class__":
                 setattr(self, key, value)
             else:
@@ -36,8 +34,7 @@ class BaseModel:
 
     def __str__(self):
         """returns an update for the BaseModel"""
-        return "[{}] ({}) {}".format(self.__class__.__name__,
-                                     self.id, self.__dict__)
+        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
         """returns an update for the updated_at"""
@@ -53,7 +50,6 @@ class BaseModel:
         model_dict['created_at'] = str(self.created_at)
         model_dict["__class__"] = self.__class__.__name__
         return model_dict
-
 
 def assign_dict(dest, src):
     """assign the value of src to dest"""

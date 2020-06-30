@@ -2,8 +2,10 @@
 """Define a class FileStorage"""
 
 import json
+import os
 from datetime import datetime
 from models.base_model import BaseModel
+
 
 class FileStorage:
     """serialize instances to a JSON file"""
@@ -38,6 +40,7 @@ class FileStorage:
                     obj = eval(value["__class__"])
                     self.__objects[key] = obj(**value)
                     print("reload here")
-                    self.__objects["{}.{}".format(self.__class__.__name__, obj.id)] = obj
-        except:
+                    self.__objects[
+                        "{}.{}".format(self.__class__.__name__, obj.id)] = obj
+        except FileNotFoundError:
             return
