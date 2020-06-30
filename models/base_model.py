@@ -28,10 +28,7 @@ class BaseModel:
 
         else:
             for key, value in kwargs.items():
-                if key is "created_at":
-                    value = datetime.strptime(value,
-                                              "%Y-%m-%dT%H:%M:%S.%f")
-                elif key is "updated_at":
+                if key is "created_at" or key is "updated_at":
                     value = datetime.strptime(value,
                                               "%Y-%m-%dT%H:%M:%S.%f")
                 if key != "__class__":
@@ -51,8 +48,12 @@ class BaseModel:
         """Returns a dictionary containing all keys/values"""
         model_dict = {}
         assign_dict(model_dict, self.__dict__)
-        model_dict['updated_at'] = self.updated_at.isoformat()
-        model_dict['created_at'] = self.created_at.isoformat()
+        if type(self.created_at) is not str:
+            model_dict['created_at'] = self.created_at.isoformat()
+            model_dict['updated_at'] = self.updated_at.isoformat()
+        else:
+            model_dict['created_at'] = self.created_at
+            model_dict['updated_at'] = self.updated_at
         model_dict["__class__"] = self.__class__.__name__
         return model_dict
 
