@@ -20,13 +20,16 @@ class TestBaseModel(unittest.TestCase):
         self.assertNotEqual(b1.id, b2.id)
 
     def test_no_args_instantiates(self):
+        """test passing no args"""
         self.assertEqual(BaseModel, type(BaseModel()))
 
     def test_assert_is_instance(self):
+        """test the type of instance"""
         b1 = BaseModel()
         self.assertIsInstance(b1.id, str)
 
     def test_is_not_instance(self):
+        """test the type of instance"""
         b1 = BaseModel()
         self.assertNotIsInstance(b1.id, int)
 
