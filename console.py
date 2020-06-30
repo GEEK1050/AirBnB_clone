@@ -4,6 +4,7 @@
 import cmd
 import sys
 
+
 class HBNBCommand(cmd.Cmd):
     """commandLine Class"""
     def emptyline(self):
@@ -12,12 +13,13 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, args):
         """ctrl+d"""
+        print()
         return True
 
     def do_quit(self, args):
-         """ctrl+z"""
-         quit()
-         return True
+        """ctrl+z"""
+        quit()
+        return True
 
     if sys.stdin.isatty():
         prompt = "(hbnb)"
