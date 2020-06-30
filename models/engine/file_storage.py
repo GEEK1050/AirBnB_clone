@@ -37,10 +37,7 @@ class FileStorage:
                 dict_js = my_file.read()
                 my_dict = json.loads(dict_js)
                 for key, value in my_dict.items():
-                    obj = eval(value["__class__"])
-                    self.__objects[key] = obj(**value)
-                    print("reload here")
-                    self.__objects[
-                        "{}.{}".format(self.__class__.__name__, obj.id)] = obj
+                    obj = eval(value["__class__"])(**value)
+                    self.__objects[key] = obj
         except FileNotFoundError:
             return
