@@ -19,11 +19,11 @@ class TestBaseModel(unittest.TestCase):
         b2 = BaseModel()
         self.assertNotEqual(b1.id, b2.id)
 
-    def test_no_args_instantiates(self):
+    def test_no_args(self):
         """test passing no args"""
         self.assertEqual(BaseModel, type(BaseModel()))
 
-    def test_assert_is_instance(self):
+    def test_assert(self):
         """test the type of instance"""
         b1 = BaseModel()
         self.assertIsInstance(b1.id, str)
@@ -62,6 +62,18 @@ class TestBaseModel(unittest.TestCase):
         """test passing no kwargs"""
         with self.assertRaises(TypeError):
             BaseModel(id=None, created_at=None, updated_at=None)
+
+    def test_new_obj_stored(self):
+        self.assertIn(BaseModel(), models.storage.all().values())
+
+    def test_id_is_str(self):
+        self.assertEqual(str, type(BaseModel().id))
+
+    def test_created_type_datetime(self):
+        self.assertEqual(datetime, type(BaseModel().created_at))
+
+    def test_updated_type_datetime(self):
+        self.assertEqual(datetime, type(BaseModel().updated_at))
 
     def test_json(self):
         """json tests"""
