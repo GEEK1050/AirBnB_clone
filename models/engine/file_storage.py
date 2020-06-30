@@ -2,6 +2,7 @@
 """Define a class FileStorage"""
 
 import json
+import os
 from datetime import datetime
 from models.base_model import BaseModel
 
