@@ -12,6 +12,10 @@ import json
 class TestFileStorage(unittest.TestCase):
     """Test Cases for the FileStorage class."""
 
+    def test_with_arg(self):
+        with self.assertRaises(TypeError):
+            FileStorage(None)
+
     def test_no_args(self):
         self.assertEqual(BaseModel, type(BaseModel()))
 
