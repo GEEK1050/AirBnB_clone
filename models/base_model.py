@@ -47,7 +47,8 @@ class BaseModel:
     def to_dict(self):
         """Returns a dictionary containing all keys/values"""
         model_dict = {}
-        assign_dict(model_dict, self.__dict__)
+
+        model_dict = self.__dict__
         if type(self.created_at) is not str:
             model_dict['created_at'] = self.created_at.isoformat()
             model_dict['updated_at'] = self.updated_at.isoformat()
