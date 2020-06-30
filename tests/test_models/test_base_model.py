@@ -59,10 +59,10 @@ class TestBaseModel(unittest.TestCase):
             BaseModel(id=None, created_at=None, updated_at=None)
 
     def test_json(self):
-      """json tests"""
-      b1 = BaseModel()
-      d = b1.to_dict()
-      self.assertAlmostEqual(type(d), dict)
+        """json tests"""
+        b1 = BaseModel()
+        d = b1.to_dict()
+        self.assertAlmostEqual(type(d), dict)
 
     def test_id_type_string(self):
         """
@@ -73,4 +73,4 @@ class TestBaseModel(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()                                          
+    unittest.main()
