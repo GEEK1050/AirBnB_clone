@@ -128,7 +128,6 @@ class HBNBCommand(cmd.Cmd):
         except:
             pass
 
-
         if len(args) == 0:
             print("** class name missing **")
         elif len(args) == 1 and args[0] in self.my_classes:
