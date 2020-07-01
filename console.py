@@ -48,14 +48,11 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, args):
         """Prints the string representation of an instance"""
         if not len(args):
-            print("** class name missing **")
+            print("** no instance found **")
             return
         arguments = args.split(" ")
         className = arguments[0]
 
-        if className not in HBNBCommand.my_classes:
-            print("** class doesn't exist **")
-            return
         if len(arguments) is not 2:
             print("** instance id missing **")
             return
@@ -78,6 +75,7 @@ class HBNBCommand(cmd.Cmd):
         className = arguments[0]
 
         if className not in HBNBCommand.my_classes:
+
             print("** class doesn't exist **")
             return
         if len(arguments) is not 2:
@@ -115,6 +113,32 @@ class HBNBCommand(cmd.Cmd):
                     list_obj.append(str(element))
             if len(list_obj):
                 print(list_obj)
+
+    def do_update(self, args):
+        """update instance based in the class name ans id"""
+        args = args.split()
+        my_obj = storage.all()
+        try:
+            basic = args[0] + "." + args[1]
+        except NameError:
+            pass
+
+        if len(args) == 0:
+            print("** class name missing **")
+        elif len(args) == 1 and args[0] in self.my_classes:
+            print("** instance id missing **")
+        elif args[0] not in self.my_classes:
+            print("** class doesn't exist **")
+        elif basic not in my_obj.keys():
+            print("** no instance found **")
+        elif len(args) <= 2:
+            print("** attribute name missing **")
+        elif len(args) <= 3:
+            print("** value missing **")
+        else:
+            setattr(my_obj[basic], args[2], args[3])
+            storage.save()
+
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
