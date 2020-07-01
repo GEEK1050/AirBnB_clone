@@ -4,6 +4,7 @@
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models import storage
+import models
 import unittest
 from datetime import datetime
 import json
@@ -65,6 +66,12 @@ class TestBaseModel_to_dict(unittest.TestCase):
     def test_type_to_dict(self):
         b = BaseModel()
         self.assertTrue(dict, type(b.to_dict()))
+
+    def test_reload_with_no_file(self):
+        self.assertRaises(FileNotFoundError, models.storage.reload())
+
+    def test_ordinary_all(self):
+        self.assertEqual(dict, type(models.storage.all()))
 
 
 if __name__ == '__main__':

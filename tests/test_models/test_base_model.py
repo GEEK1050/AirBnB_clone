@@ -88,6 +88,27 @@ class TestBaseModel(unittest.TestCase):
         b1 = BaseModel()
         self.assertEqual(type(b1.id), str)
 
+    def test_save_updates_file(self):
+        b1 = BaseModel()
+        b1.save()
+        b1id = "BaseModel." + b1.id
+        with open("file.json", "r") as f:
+            self.assertIn(b1id, f.read())
+
+    def test_save_with_arg(self):
+        b1 = BaseModel()
+        with self.assertRaises(TypeError):
+            b1.save(None)
+
+    def test_to_dict_type(self):
+        b1 = BaseModel()
+        self.assertTrue(dict, type(b1.to_dict()))
+
+    def test_to_dict_with_arg(self):
+        b1 = BaseModel()
+        with self.assertRaises(TypeError):
+            b1.to_dict(None)
+
 
 if __name__ == '__main__':
     unittest.main()
