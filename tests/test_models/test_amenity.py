@@ -17,6 +17,5 @@ class TestAmenity(unittest.TestCase):
         self.assertIn(Amenity(), models.storage.all().values())
 
 
-
 if __name__ == "__main__":
     unittest.main()

@@ -27,6 +27,7 @@ class TestHBNBCommand_help(unittest.TestCase):
             self.assertFalse(HBNBCommand().onecmd("help quit"))
             self.assertEqual(hlp, output.getvalue().strip())
 
+
 class TestHBNBCommand_exit(unittest.TestCase):
     """Unittests for testing exiting interpreter."""
 
@@ -47,4 +48,3 @@ class TestHBNBCommand_create(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-    
