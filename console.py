@@ -125,7 +125,7 @@ class HBNBCommand(cmd.Cmd):
         my_obj = storage.all()
         try:
             basic = args[0] + "." + args[1]
-        except NameError:
+        except:
             pass
 
         if len(args) == 0:
