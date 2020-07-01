@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """command interpreter"""
 
-
 import cmd
 import sys
 from models import storage
