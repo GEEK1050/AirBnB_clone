@@ -161,6 +161,15 @@ class HBNBCommand(cmd.Cmd):
                           cmmd[1], cmmd[0])
                     eval(li)
 
+    def do_count(self, args):
+        """counting key number passing in prompt"""
+        list_obj = []
+        all_obj = storage.all()
+        for element in all_obj.values():
+            if element.__class__.__name__ == args:
+                list_obj.append(str(element))
+        print(len(list_obj))
+
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
