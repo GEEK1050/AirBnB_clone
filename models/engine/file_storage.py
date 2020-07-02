@@ -33,8 +33,7 @@ class FileStorage:
         with open(self.__file_path, "w", encoding="utf-8") as my_file:
             my_dict = {}
             for key, value in self.__objects.items():
-                tmp = copy.deepcopy(value)
-                my_dict[key] = tmp.to_dict()
+                my_dict[key] = value.to_dict()
             js_object = json.dumps(my_dict)
             my_file.write(js_object)
 

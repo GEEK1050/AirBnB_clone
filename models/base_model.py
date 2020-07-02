@@ -4,6 +4,7 @@
 import uuid
 from datetime import datetime
 import models
+import copy
 
 
 class BaseModel:
@@ -20,19 +21,20 @@ class BaseModel:
         """
         Initialization
         """
-        if not kwargs:
+
+        if kwargs:
+            for key, value in kwargs.items():
+                if key == "created_at" or key == "updated_at":
+                    value = datetime.strptime(value,
+                                              "%Y-%m-%dT%H:%M:%S.%f")
+                    print(type(value))
+                if key != "__class__":
+                    setattr(self, key, value)
+        else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
             models.storage.new(self)
-
-        else:
-            for key, value in kwargs.items():
-                if key is "created_at" or key is "updated_at":
-                    value = datetime.strptime(value,
-                                              "%Y-%m-%dT%H:%M:%S.%f")
-                if key != "__class__":
-                    setattr(self, key, value)
 
     def __str__(self):
         """returns an update for the BaseModel"""
@@ -48,13 +50,9 @@ class BaseModel:
         """Returns a dictionary containing all keys/values"""
         model_dict = {}
 
-        model_dict = self.__dict__
-        if type(self.created_at) is not str:
-            model_dict['created_at'] = self.created_at.isoformat()
-            model_dict['updated_at'] = self.updated_at.isoformat()
-        else:
-            model_dict['created_at'] = self.created_at
-            model_dict['updated_at'] = self.updated_at
+        model_dict = copy.deepcopy(self.__dict__)
+        model_dict['created_at'] = model_dict['created_at'].isoformat()
+        model_dict['updated_at'] = model_dict['updated_at'].isoformat()
         model_dict["__class__"] = self.__class__.__name__
         return model_dict
 
