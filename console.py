@@ -18,6 +18,7 @@ class HBNBCommand(cmd.Cmd):
     """commandLine Class"""
     my_classes = ["BaseModel", "User", "State", "City", "Place", "Amenity",
                   "Review"]
+    my_args = ['all', 'count', 'show', 'destroy', 'update']
 
     def emptyline(self):
         """emptyline"""
@@ -83,8 +84,7 @@ class HBNBCommand(cmd.Cmd):
             return
         arguments = shlex.split(args)
         className = arguments[0]
-#        for i in range(len(arguments)):
-            
+
         if className not in HBNBCommand.my_classes:
 
             print("** class doesn't exist **")
@@ -138,7 +138,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif len(args) == 1 and args[0] in self.my_classes:
             print("** instance id missing **")
-        elif  args[0] not in self.my_classes:
+        elif args[0] not in self.my_classes:
             print("** class doesn't exist **")
         elif basic not in my_obj.keys():
             print("** no instance found **")
@@ -149,6 +149,17 @@ class HBNBCommand(cmd.Cmd):
         else:
             setattr(my_obj[basic], args[2], args[3])
             storage.save()
+
+    def default(self, args):
+        """parsing line"""
+        if len(args):
+            cmmd = args.split('.')
+            if cmmd[0] in HBNBCommand.my_classes:
+                cmmd[1] = cmmd[1].strip('()')
+                if cmmd[1] in HBNBCommand.my_args:
+                    li = "HBNBCommand.do_{}(self, '{}')".format(
+                          cmmd[1], cmmd[0])
+                    eval(li)
 
 
 if __name__ == "__main__":
