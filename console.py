@@ -16,7 +16,8 @@ from models.review import Review
 
 class HBNBCommand(cmd.Cmd):
     """commandLine Class"""
-    my_classes = ["BaseModel"]
+    my_classes = ["BaseModel", "User", "State", "City", "Place", "Amenity",
+                  "Review"]
 
     def emptyline(self):
         """emptyline"""
