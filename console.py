@@ -2,6 +2,7 @@
 """command interpreter"""
 
 import cmd
+import shlex
 import sys
 from models import storage
 from models.base_model import BaseModel
@@ -55,7 +56,7 @@ class HBNBCommand(cmd.Cmd):
         if not len(args):
             print("** class name missing **")
             return
-        arguments = args.split(" ")
+        arguments = shlex.split(args)
         className = arguments[0]
         if className not in HBNBCommand.my_classes:
             print("** class doesn't exist **")
@@ -78,14 +79,15 @@ class HBNBCommand(cmd.Cmd):
         if not len(args):
             print("** class name missing **")
             return
-        arguments = args.split(" ")
+        arguments = shlex.split(args)
         className = arguments[0]
-
+#        for i in range(len(arguments)):
+            
         if className not in HBNBCommand.my_classes:
 
             print("** class doesn't exist **")
             return
-        if len(arguments) is not 2:
+        if len(arguments) != 2:
             print("** instance id missing **")
             return
 
