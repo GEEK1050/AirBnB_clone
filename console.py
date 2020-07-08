@@ -155,10 +155,17 @@ class HBNBCommand(cmd.Cmd):
         if len(args):
             cmmd = args.split('.')
             if cmmd[0] in HBNBCommand.my_classes:
-                cmmd[1] = cmmd[1].strip('()')
-                if cmmd[1] in HBNBCommand.my_args:
+                cmmd[1] = cmmd[1].split('(')
+                arg = cmmd[1][1].strip(')')
+                cmmd[1] = cmmd[1][0]
+                if cmmd[1] in HBNBCommand.my_args and not len(arg):
                     li = "HBNBCommand.do_{}(self, '{}')".format(
                           cmmd[1], cmmd[0])
+                    eval(li)
+                elif cmmd[1] in HBNBCommand.my_args:
+                    arg = cmmd[0] + ' ' + arg.strip("'").strip('"')
+                    li = "HBNBCommand.do_{}(self, '{}')".format(
+                          cmmd[1], arg)
                     eval(li)
 
     def do_count(self, args):
@@ -169,7 +176,6 @@ class HBNBCommand(cmd.Cmd):
             if element.__class__.__name__ == args:
                 list_obj.append(str(element))
         print(len(list_obj))
-
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
