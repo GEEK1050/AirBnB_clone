@@ -167,7 +167,6 @@ class HBNBCommand(cmd.Cmd):
                     li = "HBNBCommand.do_{}(self, '{}')".format(
                           cmmd[1], arg)
 
-
     def do_count(self, args):
         """counting key number passing in prompt"""
         list_obj = []
