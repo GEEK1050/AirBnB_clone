@@ -168,6 +168,7 @@ class HBNBCommand(cmd.Cmd):
                           cmmd[1], arg)
 
 
+
     def do_count(self, args):
         """counting key number passing in prompt"""
         list_obj = []
