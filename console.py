@@ -166,6 +166,7 @@ class HBNBCommand(cmd.Cmd):
                     arg = cmmd[0] + ' ' + arg.strip("'").strip('"')
                     li = "HBNBCommand.do_{}(self, '{}')".format(
                           cmmd[1], arg)
+                          
 
 
     def do_count(self, args):
